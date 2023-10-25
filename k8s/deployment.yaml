@@ -14,5 +14,7 @@ spec:
     spec:
       containers:
         - name: my-spring-boot-app
-          image: my-spring-boot-app:1.0.1
+          image: kouki9818/my-spring-boot-app:1.0.1
           imagePullPolicy: IfNotPresent
+      imagePullSecrets:
+        - name: regcred
