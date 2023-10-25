@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-app
+  name: argocd-sample
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,11 +10,14 @@ metadata:
     argocd-image-updater.argoproj.io/mycontainer.update-strategy: latest
     argocd-image-updater.argoproj.io/mycontainer.allow-tags: '*'
 spec:
-  project: argocd-sample
+  project: default
   source:
     repoURL: 'https://github.com/sato9818/argocd-sample-java-app'
-    targetRevision: HEAD
     path: k8s/
+    targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: my-namespace
+    namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true
