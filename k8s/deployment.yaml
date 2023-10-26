@@ -2,6 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-spring-boot-app
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: mycontainer=docker.io/kouki9818/my-spring-boot-app
+    argocd-image-updater.argoproj.io/mycontainer.update-strategy: latest
+    argocd-image-updater.argoproj.io/mycontainer.allow-tags: any
+    argocd-image-updater.argoproj.io/write-back-method: argocd
 spec:
   replicas: 1
   selector:
