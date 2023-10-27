@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: sample-app
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
   annotations:
     argocd-image-updater.argoproj.io/image-list: mycontainer=docker.io/kouki9818/my-spring-boot-app
     argocd-image-updater.argoproj.io/mycontainer.update-strategy: latest
