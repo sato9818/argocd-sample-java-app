@@ -15,7 +15,7 @@ spec:
     helm:
       values: |
         config:
-          logLevel: "info"
+          logLevel: "debug"
     chart: argocd-image-updater
   destination:
     server: 'https://kubernetes.default.svc'
