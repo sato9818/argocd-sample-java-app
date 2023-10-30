@@ -14,10 +14,11 @@ spec:
   source:
     repoURL: https://github.com/sato9818/argocd-sample-java-app
     targetRevision: HEAD
-    path: k8s/child-apps/
+    path: k8s/app/child-apps/
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
   syncPolicy:
-    automated: {}
-    selfHeal: true
+    automated:
+      prune: true
+      selfHeal: true
