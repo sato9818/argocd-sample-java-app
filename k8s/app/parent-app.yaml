@@ -8,7 +8,7 @@ metadata:
   annotations:
     argocd-image-updater.argoproj.io/image-list: my-spring-boot-app=docker.io/kouki9818/my-spring-boot-app
     argocd-image-updater.argoproj.io/my-spring-boot-app.update-strategy: semver
-    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/write-back-method: argocd
 spec:
   project: default
   source:
