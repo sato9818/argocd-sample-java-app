@@ -8,7 +8,7 @@ metadata:
     service: istio-test-app
 spec:
   ports:
-    - port: 80
+    - port: 8080
       name: http
   selector:
     app: istio-test-app
