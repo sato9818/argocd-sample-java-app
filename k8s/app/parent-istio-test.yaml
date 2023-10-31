@@ -1,18 +1,18 @@
-#apiVersion: argoproj.io/v1alpha1
-#kind: Application
-#metadata:
-#  name: sample-app
-#  namespace: argocd
-#spec:
-#  project: default
-#  source:
-#    repoURL: git@github.com:sato9818/argocd-sample-java-app.git
-#    targetRevision: main
-#    path: k8s/app/child-apps/
-#  destination:
-#    server: 'https://kubernetes.default.svc'
-#    namespace: default
-#  syncPolicy:
-#    automated:
-#      prune: true
-#      selfHeal: true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-test-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:sato9818/argocd-sample-java-app.git
+    targetRevision: main
+    path: k8s/app/istio-test-child-apps/
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: istio-test
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
