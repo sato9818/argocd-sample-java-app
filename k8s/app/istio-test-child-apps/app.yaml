@@ -9,7 +9,6 @@ metadata:
 spec:
   ports:
     - port: 8080
-      name: http
   selector:
     app: istio-test-app
 ---
@@ -37,3 +36,5 @@ spec:
         - name: my-spring-boot-app
           image: docker.io/kouki9818/my-spring-boot-app:1.0.5
           imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
