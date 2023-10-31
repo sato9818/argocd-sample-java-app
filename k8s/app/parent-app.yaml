@@ -13,7 +13,7 @@ spec:
   project: default
   source:
     repoURL: git@github.com:sato9818/argocd-sample-java-app.git
-    targetRevision: HEAD
+    targetRevision: main
     path: k8s/app/child-apps/
   destination:
     server: 'https://kubernetes.default.svc'
