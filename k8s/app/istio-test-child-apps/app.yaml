@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: istio-test-app
+  namespace: istio-test
+  labels:
+    app: istio-test-app
+    service: istio-test-app
+spec:
+  ports:
+    - port: 80
+      name: http
+  selector:
+    app: istio-test-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: istio-test-app
+  namespace: istio-test
+  labels:
+    app: istio-test-app
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: istio-test-app
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: istio-test-app
+        version: v1
+    spec:
+      containers:
+        - name: my-spring-boot-app
+          image: docker.io/kouki9818/my-spring-boot-app:1.0.5
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
